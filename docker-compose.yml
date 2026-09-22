@@ -1,0 +1,46 @@
+services:
+
+  api:
+    build:
+      context: ./api
+    container_name: cellulys-api
+    environment:
+      PORT: 3000
+      MONGODB_URI: ${MONGODB_API_URI}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "3000:3000"
+
+  game-1:
+    build:
+      context: ./game
+    container_name: cellulys-game-1
+    environment:
+      INSTANCE_ID: game-1
+      PORT: 3001
+      MONGODB_URI: ${MONGODB_GAME_URI}
+    ports:
+      - "3001:3001"
+
+  game-2:
+    build:
+      context: ./game
+    container_name: cellulys-game-2
+    environment:
+      INSTANCE_ID: game-2
+      PORT: 3001
+      MONGODB_URI: ${MONGODB_GAME_URI}
+    ports:
+      - "3002:3001"
+
+  proxy:
+    image: nginx:alpine
+    container_name: cellulys-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+      - game-1
+      - game-2

@@ -1,0 +1,6 @@
+.env
+.idea/
+node_modules/
+api/node_modules/
+game/node_modules/
+.DS_Store
