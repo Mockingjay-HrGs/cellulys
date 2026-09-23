@@ -1,0 +1,7 @@
+[
+  { "username": "TestPlayer", "password": "Test1234!" },
+  { "username": "TestPlayer2", "password": "Test1234!" },
+  { "username": "BotTest3", "password": "TON_MOT_DE_PASSE" },
+  { "username": "BotTest4", "password": "TON_MOT_DE_PASSE" },
+  { "username": "BotTest5", "password": "TON_MOT_DE_PASSE" }
+]

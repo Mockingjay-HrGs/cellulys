@@ -4,3 +4,5 @@ node_modules/
 api/node_modules/
 game/node_modules/
 .DS_Store
+scripts/bots/.env.bots
+scripts/bots/accounts.json
